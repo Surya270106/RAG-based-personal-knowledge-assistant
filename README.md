@@ -1,4 +1,4 @@
-# 🧠 DocMind — RAG-Based Personal Knowledge Assistant
+# DocMind — RAG-Based Personal Knowledge Assistant
 
 > **Chat with your PDFs.** Upload any document, ask questions in natural language, and get precise, source-cited answers powered by Retrieval-Augmented Generation.
 
@@ -11,42 +11,42 @@
 
 ---
 
-## 📌 What is DocMind?
+## What is DocMind?
 
-DocMind is a **local-first, privacy-respecting** RAG (Retrieval-Augmented Generation) assistant that lets you have a conversation with your PDF documents. Unlike ChatGPT or other cloud-based tools, **your data never leaves your machine** — embeddings are stored locally in FAISS, and only the relevant context is sent to the LLM for answer synthesis.
+DocMind is a local-first, privacy-respecting RAG (Retrieval-Augmented Generation) assistant that lets you have a conversation with your PDF documents. Unlike cloud-based tools, your data never leaves your machine. Embeddings are stored locally in FAISS, and only the relevant context is sent to the LLM for answer synthesis.
 
 ### Key Features
 
 | Feature | Description |
 |---|---|
-| 🔍 **Semantic Retrieval** | Finds contextually relevant passages, not just keyword matches |
-| 📎 **Source Citations** | Every answer links back to exact page and paragraph |
-| 💬 **Multi-turn Chat** | Follow-up questions maintain conversation context |
-| 🗄️ **Local Vector Store** | FAISS index — your data never leaves your machine |
-| ⚡ **Groq LLaMA 3.3 70B** | Fastest open-weight LLM — answers in under 2 seconds |
-| 📄 **Any PDF** | Research papers, contracts, manuals, reports — anything goes |
+| **Semantic Retrieval** | Finds contextually relevant passages, not just keyword matches |
+| **Source Citations** | Every answer links back to exact page and paragraph |
+| **Multi-turn Chat** | Follow-up questions maintain conversation context |
+| **Local Vector Store** | FAISS index — your data never leaves your machine |
+| **Groq LLaMA 3.3 70B** | Fastest open-weight LLM — answers in under 2 seconds |
+| **Universal PDF Support** | Research papers, contracts, manuals, reports — anything goes |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 flowchart LR
-    A[📄 PDF Upload] --> B[Text Extraction<br/>PyMuPDF]
+    A[PDF Upload] --> B[Text Extraction<br/>PyMuPDF]
     B --> C[Chunking<br/>1000 chars, 150 overlap]
     C --> D[Embedding<br/>all-MiniLM-L6-v2]
     D --> E[(FAISS<br/>Vector Store)]
 
-    F[❓ User Question] --> G[Query Embedding]
+    F[User Question] --> G[Query Embedding]
     G --> E
     E -->|Top-K Chunks| H[Context Assembly]
     H --> I[LLM Synthesis<br/>Groq LLaMA 3.3 70B]
-    I --> J[✅ Cited Answer]
+    I --> J[Cited Answer]
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework:** FastAPI + Uvicorn
@@ -64,7 +64,7 @@ flowchart LR
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 DocMind/
@@ -100,7 +100,7 @@ DocMind/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -143,7 +143,7 @@ Open `http://localhost:3000` in your browser.
 
 ---
 
-## 🐳 Docker Quick Start
+## Docker Quick Start
 
 Run the entire stack with a single command:
 
@@ -172,7 +172,7 @@ docker-compose down -v
 
 ---
 
-## 🧪 Testing
+## Testing
 
 DocMind includes a comprehensive Pytest test suite with **25 tests** covering the full RAG pipeline:
 
@@ -201,7 +201,7 @@ pytest tests/test_chunking.py -v
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### `POST /upload`
 
@@ -259,15 +259,15 @@ Ask a question about your uploaded documents.
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | ✅ | API key from [Groq Console](https://console.groq.com) |
+| `GROQ_API_KEY` | Yes | API key from [Groq Console](https://console.groq.com) |
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Multi-document chat (query across all uploaded docs)
 - [ ] Streaming LLM responses (Server-Sent Events)
@@ -278,9 +278,9 @@ Ask a question about your uploaded documents.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Here's how:
+Contributions are welcome! Here is how:
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
@@ -290,12 +290,12 @@ Contributions are welcome! Here's how:
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 <p align="center">
-  Built with ❤️ using FastAPI, FAISS, Sentence Transformers & Groq LLaMA 3.3
+  Built using FastAPI, FAISS, Sentence Transformers & Groq LLaMA 3.3
 </p>
